@@ -63,6 +63,10 @@ ObjectReadVersion = partial(
     ParameterizedActionNeed, 'files-rest-object-read-version')
 """Action needed: get object version in bucket."""
 
+ObjectUpdate = partial(
+    ParameterizedActionNeed, 'files-rest-object-update')
+"""Action needed: delete object in bucket."""
+
 ObjectDelete = partial(
     ParameterizedActionNeed, 'files-rest-object-delete')
 """Action needed: delete object in bucket."""
@@ -126,6 +130,7 @@ _action2need_map = {
     'bucket-listmultiparts': BucketListMultiparts,
     'object-read': ObjectRead,
     'object-read-version': ObjectReadVersion,
+    'object-update': ObjectUpdate,
     'object-delete': ObjectDelete,
     'object-delete-version': ObjectDeleteVersion,
     'multipart-read': MultipartRead,

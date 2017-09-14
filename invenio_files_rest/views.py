@@ -29,7 +29,7 @@ from __future__ import absolute_import, print_function
 import uuid
 from functools import partial, wraps
 
-from flask import Blueprint, abort, current_app, json, request
+from flask import Blueprint, abort, current_app, request
 from flask_login import current_user
 from invenio_db import db
 from invenio_rest import ContentNegotiatedMethodView
@@ -844,7 +844,7 @@ class ObjectVersionTagResource(ContentNegotiatedMethodView):
         super(ObjectVersionTagResource, self).__init__(*args, **kwargs)
 
     @pass_bucket
-    @need_bucket_permission('bucket-update')
+    @need_bucket_permission('object-update')
     def put(self, key=None, bucket=None):
         """Create or update tags."""
         tags = request.get_json()
@@ -862,7 +862,7 @@ class ObjectVersionTagResource(ContentNegotiatedMethodView):
         )
 
     @pass_bucket
-    @need_bucket_permission('bucket-update')
+    @need_bucket_permission('object-update')
     def delete(self, key=None, bucket=None):
         """Delete a tag by its name."""
         tags = request.get_json()
